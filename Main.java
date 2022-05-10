@@ -3,45 +3,45 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String[] laenderArray = new String[20];
+        String[] countryArray = new String[20];
 
-        laenderArray[0] = "Austria";
-        laenderArray[1] = "Belgium";
-        laenderArray[2] = "China";
-        laenderArray[3] = "Denmark";
-        laenderArray[4] = "England";
-        laenderArray[5] = "France";
-        laenderArray[6] = "Germany";
-        laenderArray[7] = "Honduras";
-        laenderArray[8] = "Italy";
-        laenderArray[9] = "Japan";
-        laenderArray[10] = "Korea";
-        laenderArray[11] = "Latvia";
-        laenderArray[12] = "Morrocco";
-        laenderArray[13] = "Nigeria";
-        laenderArray[14] = "Oman";
-        laenderArray[15] = "Pakistan";
-        laenderArray[16] = "Quebec";
-        laenderArray[17] = "Romania";
-        laenderArray[18] = "Spain";
-        laenderArray[19] = "Tajikistan";
+        countryArray[0] = "Austria";
+        countryArray[1] = "Belgium";
+        countryArray[2] = "China";
+        countryArray[3] = "Denmark";
+        countryArray[4] = "England";
+        countryArray[5] = "France";
+        countryArray[6] = "Germany";
+        countryArray[7] = "Honduras";
+        countryArray[8] = "Italy";
+        countryArray[9] = "Japan";
+        countryArray[10] = "Korea";
+        countryArray[11] = "Latvia";
+        countryArray[12] = "Morrocco";
+        countryArray[13] = "Nigeria";
+        countryArray[14] = "Oman";
+        countryArray[15] = "Pakistan";
+        countryArray[16] = "Quebec";
+        countryArray[17] = "Romania";
+        countryArray[18] = "Spain";
+        countryArray[19] = "Tajikistan";
 
         Random random = new Random();
         int randomNumber = random.nextInt(20);
-        Scanner landScanner = new Scanner(System.in);
+        Scanner countryScanner = new Scanner(System.in);
 
-        String randomLand = laenderArray[randomNumber];
-        System.out.println(randomLand);
+        String randomCountry = countryArray[randomNumber];
+        System.out.println(randomCountry);
 
         String toGuessString = "";
-        for (int i = 0; i < randomLand.length(); ++i) {
+        for (int i = 0; i < randomCountry.length(); ++i) {
             toGuessString += "_";
         }
         System.out.println(toGuessString);
 
         int failCounter = 0;
         while (failCounter < 5) {
-            if (toGuessString.equals(randomLand)) {
+            if (toGuessString.equals(randomCountry)) {
                 System.out.println("Congratulations, you've solved it!");
                 break;
             }
@@ -50,7 +50,7 @@ public class Main {
             while (validChar) {
                 try {
                     System.out.print("Please enter a letter you want to guess " + "(Fails: " + failCounter + "): \n");
-                    userInput = landScanner.next().charAt(0);
+                    userInput = countryScanner.next().charAt(0);
                     if (toGuessString.contains(String.valueOf(userInput)))
                         System.out.println(toGuessString);
                     else
@@ -61,13 +61,13 @@ public class Main {
             }
 
             if (!Character.isSpaceChar(userInput)) {
-                randomLand = randomLand.toLowerCase();
-                if (randomLand.contains(String.valueOf(userInput))) {
-                    char[] randomLandArray = toGuessString.toCharArray();
-                    for (int c = 0; c < randomLand.length(); ++c) {
-                        if (randomLand.charAt(c) == userInput) {
-                            randomLandArray[c] = userInput;
-                            toGuessString = String.valueOf(randomLandArray);
+                randomCountry = randomCountry.toLowerCase();
+                if (randomCountry.contains(String.valueOf(userInput))) {
+                    char[] randomCountryArray = toGuessString.toCharArray();
+                    for (int c = 0; c < randomCountry.length(); ++c) {
+                        if (randomCountry.charAt(c) == userInput) {
+                            randomCountryArray[c] = userInput;
+                            toGuessString = String.valueOf(randomCountryArray);
                         }
                     }
                     System.out.println(toGuessString);
@@ -83,7 +83,7 @@ public class Main {
 
         }
 
-        landScanner.close();
+        countryScanner.close();
 
     }
 }
