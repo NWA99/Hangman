@@ -1,37 +1,23 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        String[] countryArray = new String[20];
-
-        countryArray[0] = "Austria";
-        countryArray[1] = "Belgium";
-        countryArray[2] = "China";
-        countryArray[3] = "Denmark";
-        countryArray[4] = "England";
-        countryArray[5] = "France";
-        countryArray[6] = "Germany";
-        countryArray[7] = "Honduras";
-        countryArray[8] = "Italy";
-        countryArray[9] = "Japan";
-        countryArray[10] = "Korea";
-        countryArray[11] = "Latvia";
-        countryArray[12] = "Morrocco";
-        countryArray[13] = "Nigeria";
-        countryArray[14] = "Oman";
-        countryArray[15] = "Pakistan";
-        countryArray[16] = "Quebec";
-        countryArray[17] = "Romania";
-        countryArray[18] = "Spain";
-        countryArray[19] = "Tajikistan";
+    public static void main(String[] args) throws IOException {
+        List<String> countryArray = new ArrayList<>();
+        Scanner sc = new Scanner(new File("countries.txt")).useDelimiter(",");
+        while(sc.hasNextLine()){
+            countryArray.add(sc.next().replace("\"", ""));
+        }
 
         Random random = new Random();
-        int randomNumber = random.nextInt(20);
+        int randomNumber = random.nextInt(countryArray.size());
         Scanner countryScanner = new Scanner(System.in);
 
-        String randomCountry = countryArray[randomNumber];
-        System.out.println(randomCountry);
+        String randomCountry = countryArray.get(randomNumber);
 
         String toGuessString = "";
         for (int i = 0; i < randomCountry.length(); ++i) {
