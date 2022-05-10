@@ -31,7 +31,6 @@ public class Main {
         Scanner countryScanner = new Scanner(System.in);
 
         String randomCountry = countryArray[randomNumber];
-        System.out.println(randomCountry);
 
         String toGuessString = "";
         for (int i = 0; i < randomCountry.length(); ++i) {
